@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react'
 
-const MAX_IMAGES = 4
-const MIN_IMAGES = 2
+const MAX_IMAGES = 3
+const MIN_IMAGES = 1
 
 export default function UploadScreen({ onStart }) {
   const [images, setImages] = useState([])
@@ -52,7 +52,7 @@ export default function UploadScreen({ onStart }) {
         >
           <div className="upload-zone-icon">📷</div>
           <p className="upload-zone-text">اضغط لرفع صور الدرس</p>
-          <p className="upload-zone-hint">أو اسحب الصور هنا • من {MIN_IMAGES} إلى {MAX_IMAGES} صور</p>
+          <p className="upload-zone-hint">أو اسحب الصور هنا • حتى {MAX_IMAGES} صور</p>
           <input
             ref={fileInputRef}
             type="file"
@@ -105,11 +105,7 @@ export default function UploadScreen({ onStart }) {
 
       {/* CTA */}
       <div className="mt-auto">
-        {images.length > 0 && images.length < MIN_IMAGES && (
-          <p style={{ textAlign: 'center', color: '#f59e0b', fontSize: 13, fontWeight: 700, marginBottom: 12 }}>
-            ⚠️ يرجى رفع صورتين على الأقل
-          </p>
-        )}
+        {false && null /* no minimum warning needed */}
         <button
           className="btn btn-primary"
           disabled={!canStart}
